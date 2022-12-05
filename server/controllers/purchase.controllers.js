@@ -1,5 +1,15 @@
 import { pool } from "../db.js";
 
 export const addPurchase = async (req, res) => {
-    const [result] = await pool.query("INSERT INTO tb_ims (CANTIDAD) VALUES (?)", [req.body.cantidad]);
-}
+  try {
+    const { id, cantidad } = req.body;
+    const [result] = await pool.query(
+      "UPDATE tb_ims SET CANTIDAD = ? WHERE ID = ?",
+      [cantidad, id]
+    );
+    res.json(result);
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+
