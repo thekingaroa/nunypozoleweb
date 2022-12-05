@@ -1,0 +1,13 @@
+CREATE TABLE tb_users (
+    ID              INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    NAME            VARCHAR(30),
+    USERNAME        VARCHAR(25),
+    PASSW           VARCHAR(300)
+)
+
+CREATE TABLE tb_ims (
+    ID              INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    DESCRIP         VARCHAR(40),
+    U_MEDIDA        VARCHAR(4),
+    CANTIDAD        INTEGER
+);
